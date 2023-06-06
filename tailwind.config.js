@@ -8,8 +8,8 @@ export default {
     themes: [
       {
         lightThem: {
-          "primary": "#3b7197",
-          "secondary": "#4a8db7",
+          "primary": "#4A89DC",
+          "secondary": "#5E9DEE",
           "accent": "#74bde0",
           "neutral": "#28282B ",
           "error" : "#EE0C36",

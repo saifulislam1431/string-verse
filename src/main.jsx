@@ -17,9 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-screen-xl'>
     <React.StrictMode>
       <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
+
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+          </QueryClientProvider>
+
       </HelmetProvider>
     </React.StrictMode>
   </div>

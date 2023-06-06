@@ -5,8 +5,18 @@ body{
 }
 .brandTitle{
     font-family: 'Courgette', cursive;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    @apply bg-transparent font-bold text-base text-primary
+}
+
+.default{
+    @apply bg-transparent font-semibold text-base text-primary opacity-40 hover:bg-transparent
+}
