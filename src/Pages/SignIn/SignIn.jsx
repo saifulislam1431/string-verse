@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import {Link, NavLink } from 'react-router-dom';
 import logo from "../../assets/logo/plectrum (1).png";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
+import SocialLogin from '../../Components/SocialLogIn/SocialLogin';
 const SignIn = () => {
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
@@ -59,6 +60,7 @@ className='inputField'/>
 <div className='mt-5'>
     <h1 className='font-medium'>New To String? <Link className='font-semibold text-secondary underline' to="/signUp">Sign Up</Link></h1>
 </div>
+<SocialLogin></SocialLogin>
 </div>
        </div>
 </div>
