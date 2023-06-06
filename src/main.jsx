@@ -10,6 +10,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Auth from './Auth/Auth';
 const queryClient = new QueryClient()
 
 
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <HelmetProvider>
 
           <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router} />
+<Auth>
+<RouterProvider router={router} />
+</Auth>
           </QueryClientProvider>
 
       </HelmetProvider>
