@@ -4,6 +4,8 @@ import {Link, NavLink } from 'react-router-dom';
 import logo from "../../assets/logo/plectrum (1).png";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
 import SocialLogin from '../../Components/SocialLogIn/SocialLogin';
+import animation from "../../assets/animation/78126-secure-login.json";
+import Lottie from "lottie-react";
 const SignIn = () => {
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
@@ -28,12 +30,14 @@ const SignIn = () => {
                     <img src={logo} alt="Logo" className='w-12' />
                     <span className='brandTitle text-primary'>String</span>
                 </NavLink>
+                
     </div>
-<div className='flex gap-10 items-center justify-center'>
-       <div>
-<h1>fkdsjfkjdsfj</h1>
+<div className='flex gap-14 flex-col lg:flex-row items-center justify-center'>
+       <div className='lg:w-2/4'>
+<Lottie animationData={animation} loop={true}/>
 </div>
 <div>
+<h1 className='text-center mb-10 brandTitle text-primary text-3xl'>Sign In</h1>
 <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-4'>
 <input type='email' placeholder='Enter Your Email'
 {...register("email", { required: true })} 
