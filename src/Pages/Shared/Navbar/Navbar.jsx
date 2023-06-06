@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from "../../../assets/logo/plectrum (1).png"
 const Navbar = () => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "lightThem")
-    // const [dark, setDark] = useState(false)
+    const [subMenu, setSubMenu] = useState(false)
 
     const handleToggle = e => {
 
@@ -41,12 +41,14 @@ const Navbar = () => {
 
 
         <li className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar" onClick={()=>setSubMenu(!subMenu)}>
                 <div className="w-10 rounded-full">
                     <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content p-2 shadow bg-base-100 right-0 rounded-box w-52">
+            {
+                subMenu ? 
+                <ul className="menu menu-sm dropdown-content p-2 shadow bg-base-100 right-0 rounded-box w-52">
                 <li>
                     <NavLink to="/profile"
                         className={({ isActive }) => (isActive ? "active" : "default")}>
@@ -71,6 +73,9 @@ const Navbar = () => {
                     </label>
                 </li>
             </ul>
+            :
+            ""
+            }
         </li>
     </>
     return (
