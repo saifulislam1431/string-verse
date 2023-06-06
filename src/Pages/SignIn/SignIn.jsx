@@ -43,7 +43,7 @@ const SignIn = () => {
 {...register("email", { required: true })} 
 aria-invalid={errors.email ? "true" : "false"} 
 className='inputField'/>
-{errors.email?.type === 'required' && <p role="alert">Email is required</p>}
+{errors.email?.type === 'required' && <p role="alert" className='text-error font-medium'>Email is required</p>}
 
 <div className='inline-flex items-center'>
 <input type={type} placeholder='Enter Your Password'
@@ -56,7 +56,7 @@ className='inputField'/>
                             }
                         </div>
 </div>
-{errors.password && <p role="alert">{errors.password?.message}</p>}
+{errors.password && <p role="alert" className='text-error font-medium'>{errors.password?.message}</p>}
 
 <input type="submit" value="Sign In" className='myBtn'/>
 </form>
