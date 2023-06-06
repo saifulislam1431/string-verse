@@ -11,7 +11,11 @@ const SignUp = () => {
 
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
+
+
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
     const onSubmit = (data) => console.log(data);
 
 
@@ -84,6 +88,10 @@ const SignUp = () => {
         className='inputField'/>
         {errors.photo?.type === 'required' && <p role="alert" className='text-error font-medium'>Photo is required</p>}
         
+        {/* <div>
+        <input type="number" placeholder='Your Number' {...register("phone", { min: 5, max: 99 })} className='inputField'/>
+        </div> */}
+
         <select {...register("gender")} className='inputField font-semibold'>
         <option defaultValue="Gender">Gender</option>
         <option value="female">Female</option>
@@ -91,7 +99,7 @@ const SignUp = () => {
         <option value="other">Other</option>
       </select>
 
-      <input type="number" placeholder='Your Number' {...register("phone", { min: 11, max: 99 })} className='inputField'/>
+
 
 
         <input type="submit" value="Sign Up" className='myBtn'/>
