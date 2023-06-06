@@ -73,7 +73,7 @@ const SignUp = () => {
         {errors.password && <p role="alert" className='text-error font-medium'>{errors.password?.message}</p>}
 
         <div className='inline-flex items-center'>
-        <input type={type} placeholder='Confirm Password'
+        <input type="password" placeholder='Confirm Password'
         {...register("confirmPassword", { required: "Confirm Password is required" })} 
         aria-invalid={errors.confirmPassword ? "true" : "false"} 
         className='inputField'/>
