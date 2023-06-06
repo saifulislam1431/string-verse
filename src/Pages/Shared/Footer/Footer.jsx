@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="items-center grid-flow-col">
                     <NavLink to="/" className="inline-flex items-center gap-2">
                         <img src={logo} alt="Logo" className='w-12' />
-                        <p className='font-bold'><span className='brandTitle'>String</span> <br /> Where Melodies Come to Life</p>
+                        <p className='font-bold'><span className='brandTitle text-primary'>String</span> <br /> Where Melodies Come to Life</p>
                         
                     </NavLink>
 
