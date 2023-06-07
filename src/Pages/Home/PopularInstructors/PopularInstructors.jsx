@@ -15,9 +15,10 @@ const PopularInstructors = () => {
 <div className='flex items-center justify-center my-10'>
 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 {
-    instructors.slice(0,6).map(instructor=><PopularInstructor
+    instructors.slice(0,6).map((instructor , index)=><PopularInstructor
     key={instructor._id}
     instructor={instructor}
+    index={index}
     ></PopularInstructor>)
 }
 </div>
