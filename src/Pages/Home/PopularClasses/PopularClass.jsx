@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PopularClass = ({item}) => {
-    console.log(item);
     const{className,image,numberOfStudents}=item;
     return (
         <section>
