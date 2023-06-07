@@ -86,7 +86,7 @@ const Navbar = () => {
 }
     </>
     return (
-        <div className="navbar bg-base-100 mx-auto">
+        <div className="navbar bg-accent bg-opacity-10 shadow mx-auto sticky top-0">
             <div className='navbar-start lg:hidden'>
                 <NavLink to="/" className="inline-flex items-center gap-2">
                     <img src={logo} alt="Logo" className='w-12' />

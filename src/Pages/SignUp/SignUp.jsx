@@ -11,12 +11,31 @@ const SignUp = () => {
 
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
+    const [error , setError] = useState("")
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+
+        const password = data.password;
+        const confirmPassword = data.confirmPassword;
+        if(password.length < 6){
+            setError("Password must be six characters in length")
+        }
+        if(password !== confirmPassword){
+            return setError("Password doesn't match")
+        }
+        if(!/(?=.*?[A-Z])/.test(password)){
+            return setError("At least one upper case include in your password")
+        }
+        if(!/(?=.*?[#?!@$%^&*-])/.test(password)){
+            return setError("At least one special character include in your password")
+        }
+        console.log(data);
+        setError("")
+    }
 
 
     const handleShow =()=>{
@@ -99,6 +118,8 @@ const SignUp = () => {
         <option value="other">Other</option>
       </select>
 
+      <p className='my-3 font-semibold text-red-600'>{error}</p>
+
 
 
 
@@ -106,7 +127,7 @@ const SignUp = () => {
         </form>
         
         <div className='mt-5'>
-            <h1 className='font-medium'>Already have an account?? <Link className='font-semibold text-secondary underline' to="/signIn">Sign Up</Link></h1>
+            <h1 className='font-medium'>Already have an account?? <Link className='font-semibold text-secondary underline' to="/signIn">Sign In</Link></h1>
         </div>
         <SocialLogin></SocialLogin>
         </div>
