@@ -1,0 +1,91 @@
+[
+    {
+      "Name": "John Smith",
+      "image": "https://i.ibb.co/bFN4LzK/guiterist.jpg",
+      "Email": "john.smith@example.com",
+      "NumberOfClasses": 5,
+      "NameOfTheClasses": ["Guitar Basics", "Piano for Beginners", "Music Theory 101", "Songwriting Workshop", "Advanced Guitar"],
+      "NumberOfStudents": 250
+    },
+    {
+      "Name": "Emily Johnson",
+      "image": "https://i.ibb.co/C5NxqmK/pianist.jpg",
+      "Email": "emily.johnson@example.com",
+      "NumberOfClasses": 4,
+      "NameOfTheClasses": ["Piano for Beginners", "Intermediate Piano", "Jazz Piano Techniques", "Music Composition"],
+      "NumberOfStudents": 180
+    },
+    {
+      "Name": "Michael Davis",
+      "image": "https://i.ibb.co/PDx1dqF/Violinist.jpg",
+      "Email": "michael.davis@example.com",
+      "NumberOfClasses": 3,
+      "NameOfTheClasses": ["Violin Mastery", "String Ensemble", "Music Appreciation"],
+      "NumberOfStudents": 150
+    },
+    {
+      "Name": "Sarah Thompson",
+      "image": "https://i.ibb.co/VjxZTsw/drummer.webp",
+      "Email": "sarah.thompson@example.com",
+      "NumberOfClasses": 2,
+      "NameOfTheClasses": ["Drumming Essentials", "Rhythm and Groove"],
+      "NumberOfStudents": 120
+    },
+    {
+      "Name": "David Wilson",
+      "image": "https://i.ibb.co/p04K5Dv/vocalist.png",
+      "Email": "david.wilson@example.com",
+      "NumberOfClasses": 3,
+      "NameOfTheClasses": ["Vocal Techniques", "Harmony and Ear Training", "Stage Performance"],
+      "NumberOfStudents": 100
+    },
+    {
+      "Name": "Jennifer Lee",
+      "image": "https://i.ibb.co/grmBtfM/Saxophoneist.jpg",
+      "Email": "jennifer.lee@example.com",
+      "NumberOfClasses": 2,
+      "NameOfTheClasses": ["Saxophone Fundamentals", "Jazz Improvisation"],
+      "NumberOfStudents": 90
+    },
+    {
+      "Name": "Robert Johnson",
+      "image": "https://i.ibb.co/WgfjQMw/bassist.jpg",
+      "Email": "robert.johnson@example.com",
+      "NumberOfClasses": 1,
+      "NameOfTheClasses": ["Bass Guitar Basics"],
+      "NumberOfStudents": 60
+    },
+    {
+      "Name": "Sophia Miller",
+      "image": "https://i.ibb.co/z25wwnX/fluteist.jpg",
+      "Email": "sophia.miller@example.com",
+      "NumberOfClasses": 1,
+      "NameOfTheClasses": ["Flute Masterclass"],
+      "NumberOfStudents": 55
+    },
+    {
+      "Name": "Andrew Thompson",
+      "image": "https://i.ibb.co/6yf6z1d/Trumpet-Players.jpg",
+      "Email": "andrew.thompson@example.com",
+      "NumberOfClasses": 1,
+      "NameOfTheClasses": ["Trumpet Techniques"],
+      "NumberOfStudents": 50
+    },
+    {
+      "Name": "Rachel Davis",
+      "image": "https://i.ibb.co/0nSQBc4/songwriter.jpg",
+      "Email": "rachel.davis@example.com",
+      "NumberOfClasses": 1,
+      "NameOfTheClasses": ["Songwriting Workshop"],
+      "NumberOfStudents": 45
+    },
+    {
+      "Name": "Daniel Anderson",
+      "image": "https://i.ibb.co/x2r688C/Ukulele-Plauer.jpg",
+      "Email": "daniel.anderson@example.com",
+      "NumberOfClasses": 1,
+      "NameOfTheClasses": ["Ukulele for Beginners"],
+      "NumberOfStudents": 40
+    }
+  ]
+  

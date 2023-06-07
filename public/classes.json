@@ -1,0 +1,91 @@
+[
+    {
+      "className": "Guitar Basics",
+      "image": "https://i.ibb.co/N7c9wMc/guiter.webp",
+      "instructorName": "John Smith",
+      "numberOfStudents": 150,
+      "availableSeats": 10,
+      "price": 50
+    },
+    {
+      "className": "Piano for Beginners",
+      "image": "https://i.ibb.co/SJ0jxbk/piano.jpg",
+      "instructorName": "Emily Johnson",
+      "numberOfStudents": 120,
+      "availableSeats": 5,
+      "price": 60
+    },
+    {
+      "className": "Violin Mastery",
+      "image": "https://i.ibb.co/DfFmNsS/violin.jpg",
+      "instructorName": "Michael Davis",
+      "numberOfStudents": 100,
+      "availableSeats": 3,
+      "price": 70
+    },
+    {
+      "className": "Drumming Essentials",
+      "image": "https://i.ibb.co/QjTjghw/drum.webp",
+      "instructorName": "Sarah Thompson",
+      "numberOfStudents": 90,
+      "availableSeats": 8,
+      "price": 55
+    },
+    {
+      "className": "Vocal Techniques",
+      "image": "https://i.ibb.co/hLSjjV8/vocal.jpg",
+      "instructorName": "David Wilson",
+      "numberOfStudents": 80,
+      "availableSeats": 4,
+      "price": 65
+    },
+    {
+      "className": "Saxophone Fundamentals",
+      "image": "https://i.ibb.co/1rbcJR3/saxophone.webp",
+      "instructorName": "Jennifer Lee",
+      "numberOfStudents": 70,
+      "availableSeats": 6,
+      "price": 75
+    },
+    {
+      "className": "Bass Guitar Basics",
+      "image": "https://i.ibb.co/jRtshzD/bass-man.jpg",
+      "instructorName": "Robert Johnson",
+      "numberOfStudents": 60,
+      "availableSeats": 2,
+      "price": 70
+    },
+    {
+      "className": "Flute Masterclass",
+      "image": "https://i.ibb.co/hXDy1Bw/learn-flute.webp",
+      "instructorName": "Sophia Miller",
+      "numberOfStudents": 55,
+      "availableSeats": 7,
+      "price": 45
+    },
+    {
+      "className": "Trumpet Techniques",
+      "image": "https://i.ibb.co/v3H3kWq/trumpet.jpg",
+      "instructorName": "Andrew Thompson",
+      "numberOfStudents": 50,
+      "availableSeats": 3,
+      "price": 55
+    },
+    {
+      "className": "Songwriting Workshop",
+      "image": "https://i.ibb.co/7prG1Tr/Songwriting.webp",
+      "instructorName": "Rachel Davis",
+      "numberOfStudents": 45,
+      "availableSeats": 5,
+      "price": 75
+    },
+    {
+      "className": "Ukulele for Beginners",
+      "image": "https://i.ibb.co/cNL6ycg/ukulele.jpg",
+      "instructorName": "Daniel Anderson",
+      "numberOfStudents": 40,
+      "availableSeats": 4,
+      "price": 40
+    }
+  ]
+  

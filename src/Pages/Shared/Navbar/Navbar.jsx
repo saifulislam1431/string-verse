@@ -3,6 +3,7 @@ import {Link, NavLink } from 'react-router-dom';
 import logo from "../../../assets/logo/plectrum (1).png"
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import useAuth from '../../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 const Navbar = () => {
     const{user,logOut} = useAuth();
     // const user = true
@@ -16,6 +17,27 @@ const Navbar = () => {
         } else {
             setTheme("lightThem")
         }
+    }
+
+    const handleOut =()=>{
+        logOut()
+        .then(()=>{
+            Swal.fire({
+                title: 'Success!',
+                text: 'Sign Out',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+              
+        })
+        .catch(error=>{
+            Swal.fire({
+                title: 'Error!',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
+        })
     }
 
     useEffect(() => {
@@ -73,7 +95,7 @@ const Navbar = () => {
         <li>
 
         </li>
-        <li><p className='inline-flex items-center gap-2 text-secondary font-semibold' onClick={()=>logOut()}> <FaSignOutAlt /> Logout</p></li>
+        <button onClick={handleOut} className='inline-flex items-center gap-2 text-secondary font-semibold'> <FaSignOutAlt /> Logout</button>
     </ul>
     :
     ""

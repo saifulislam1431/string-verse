@@ -1,17 +1,22 @@
 import React,{useState} from 'react';
 import { useForm } from "react-hook-form";
-import {Link, NavLink } from 'react-router-dom';
+import {Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo/plectrum (1).png";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
 import SocialLogin from '../../Components/SocialLogIn/SocialLogin';
 import animation from "../../assets/animation/78126-secure-login.json";
 import Lottie from "lottie-react";
+import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
+    const{updateUser,signUp} = useAuth();
+
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
-    const [error , setError] = useState("")
+    const [error , setError] = useState("");
+    const navigate = useNavigate()
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -34,7 +39,40 @@ const SignUp = () => {
             return setError("At least one special character include in your password")
         }
         console.log(data);
-        setError("")
+        signUp(data?.email , data?.password)
+        .then(res=>{
+            const loggedUser = res.user;
+            updateUser(loggedUser , data?.name , data?.photo)
+            .then(()=>{
+                fetch("http://localhost:5000/users" , {
+                    method:"POST",
+                    headers:{
+                        "content-type" : "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.insertedId){
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Sign Up Successful',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                          })
+                    }
+                })
+            })
+        })
+        .catch(error=>{
+            Swal.fire({
+                title: 'Error!',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
+                     
+        })
     }
 
 
