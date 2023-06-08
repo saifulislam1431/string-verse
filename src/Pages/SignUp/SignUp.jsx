@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { useForm } from "react-hook-form";
-import {Link, NavLink, useNavigate } from 'react-router-dom';
+import {Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo/plectrum (1).png";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
 import SocialLogin from '../../Components/SocialLogIn/SocialLogin';
@@ -16,7 +16,9 @@ const SignUp = () => {
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
     const [error , setError] = useState("");
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -54,6 +56,7 @@ const SignUp = () => {
                 .then(res=>res.json())
                 .then(data=>{
                     if(data.insertedId){
+                        navigate(from , {replace: true})
                         Swal.fire({
                             title: 'Success!',
                             text: 'Sign Up Successful',

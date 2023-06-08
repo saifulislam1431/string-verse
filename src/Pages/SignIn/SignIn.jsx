@@ -1,16 +1,47 @@
 import React,{useState} from 'react';
 import { useForm } from "react-hook-form";
-import {Link, NavLink } from 'react-router-dom';
+import {Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo/plectrum (1).png";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
 import SocialLogin from '../../Components/SocialLogIn/SocialLogin';
 import animation from "../../assets/animation/78126-secure-login.json";
 import Lottie from "lottie-react";
+import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 const SignIn = () => {
+    const{signIn} = useAuth();
     const[type , setType] = useState("password");
     const [IsShow , setIsShow] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/"
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+
+
+
+
+        signIn(data?.email , data?.password)
+        .then(res=>{
+            const loggedUser = res.user;
+            navigate(from , {replace: true})
+            Swal.fire({
+                title: 'Success!',
+                text: 'Sign In Successful',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+        })
+        .catch(error=>{
+            Swal.fire({
+                title: 'Error!',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
+                     
+        })
+    };
 
 
     const handleShow =()=>{
