@@ -11,19 +11,26 @@ const PrivateRouter = ({children}) => {
         return <Loading></Loading>
     }
     if(!user){
+        // Swal.fire({
+        //     title: 'Please Sign In',
+        //     text: "For view this page you have to sign in first",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Sign In'
+        //   }).then((result) => {
+        //     if (result.isConfirmed) {
+        //       return <Navigate to="/signIn" state={{from : location}} replace/>
+        //     }
+        //   })
         Swal.fire({
-            title: 'Please Sign In',
-            text: "For view this page you have to sign in first",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sign In'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              return <Navigate to="/signIn" state={{from : location}} replace/>
-            }
+            title: 'Alert!',
+            text: "You have to sign in first",
+            icon: 'error',
+            confirmButtonText: 'Cool'
           })
+          return <Navigate to="/signIn" state={{from : location}} replace/>
     }
     if(user){
         return children;

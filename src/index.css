@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Montez&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
-body{
+body {
     font-family: 'Raleway', sans-serif;
 }
-.brandTitle{
+
+.brandTitle {
     font-family: 'Courgette', cursive;
     font-size: 24px;
     font-weight: 700;
@@ -13,16 +14,26 @@ body{
 @tailwind components;
 @tailwind utilities;
 
-.active{
+.active {
     @apply bg-transparent font-bold text-base text-primary
 }
 
-.default{
+.default {
     @apply bg-transparent font-semibold text-base text-accent hover:bg-transparent
 }
-.myBtn{
+
+.myBtn {
     @apply font-bold text-base px-3 py-1 border border-primary rounded-lg text-primary hover:bg-primary hover:text-white disabled:opacity-30 disabled:cursor-not-allowed
 }
-.inputField{
+
+.inputField {
     @apply w-full lg:w-96 px-6 py-2 rounded-md bg-accent bg-opacity-20 focus:outline focus:outline-accent
+}
+
+.dash-active {
+    @apply w-full bg-base-100 font-bold text-primary py-3 px-3 rounded-tl-lg rounded-bl-lg
+}
+
+.dash-default {
+    @apply font-semibold py-3 px-3 text-neutral
 }

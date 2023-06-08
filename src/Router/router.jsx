@@ -6,6 +6,12 @@ import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import Instructors from "../Pages/Instructors/Instructors";
 import AllClasses from "../Pages/Classes/AllClasses";
+import PrivateRouter from "./PrivateRouter";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import SelectedClasses from "../Pages/UserDashboard/SelectedClasses/SelectedClasses";
+import EnrolledClasses from "../Pages/UserDashboard/EnrolledClasses/EnrolledClasses";
+import Payment from "../Pages/UserDashboard/Payment/Payment";
+import PaymentHistory from "../Pages/UserDashboard/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +39,29 @@ const router = createBrowserRouter([
                 path:"/classes",
                 element:<AllClasses></AllClasses>
             }
+        ]
+    },
+    {
+        path: "/dashboard",
+        element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
+        errorElement:<ErrorPage></ErrorPage>,
+        children:[
+            {
+                path:"selectedClass",
+                element:<PrivateRouter><SelectedClasses></SelectedClasses></PrivateRouter>
+            },
+            {
+                path:"enrolled",
+                element:<PrivateRouter><EnrolledClasses></EnrolledClasses></PrivateRouter>
+            },
+            {
+                path:"payment",
+                element:<PrivateRouter><Payment></Payment></PrivateRouter>
+            },
+            {
+                path:"paymentHistory",
+                element:<PrivateRouter><PaymentHistory></PaymentHistory></PrivateRouter>
+            },
         ]
     }
 ])
