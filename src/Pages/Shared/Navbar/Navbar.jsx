@@ -60,7 +60,7 @@ const Navbar = () => {
         </li>
 
         <li>
-            <NavLink to="/dashboard " className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
+            <NavLink to="/dashboard/selectedClass" className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
         </li>
 
 <li className="w-[110px]">

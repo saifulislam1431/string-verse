@@ -2,11 +2,13 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useClassCart from '../../Hooks/useClassCart';
 
 const AllClass = ({ singleClass }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [, refetch] = useClassCart();
   const { _id, className, image, instructorName, availableSeats, price } = singleClass;
 
   const handleSelect = () => {
@@ -46,6 +48,7 @@ const AllClass = ({ singleClass }) => {
       .then(res=>res.json())
       .then(data=>{
         if(data.insertedId){
+          refetch();
           Swal.fire({
             title: 'Success!',
             text: 'Class Selected Successfully',
