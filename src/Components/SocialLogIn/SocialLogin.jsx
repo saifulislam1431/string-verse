@@ -27,8 +27,8 @@ const SocialLogin = () => {
                     body: JSON.stringify(newData)
                 })
                     .then(res => res.json())
-                    .then(() => {
-
+                    .then((data) => {
+                        console.log(data);
                         navigate(from, { replace: true })
                         Swal.fire({
                             title: 'Success!',

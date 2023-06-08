@@ -10,9 +10,6 @@ const PrivateRouter = ({children}) => {
     if(loading){
         return <Loading></Loading>
     }
-    if(user){
-        return children;
-    }
     if(!user){
         Swal.fire({
             title: 'Please Sign In',
@@ -24,10 +21,14 @@ const PrivateRouter = ({children}) => {
             confirmButtonText: 'Sign In'
           }).then((result) => {
             if (result.isConfirmed) {
-              <Navigate to="/signIn" state={{from : location}} replace/>
+              return <Navigate to="/signIn" state={{from : location}} replace/>
             }
           })
     }
+    if(user){
+        return children;
+    }
+
 };
 
 export default PrivateRouter;

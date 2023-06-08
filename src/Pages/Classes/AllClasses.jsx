@@ -1,10 +1,29 @@
 import React from 'react';
+import useClasses from '../../Hooks/useClasses';
+import AllClass from './AllClass';
+import { Slide } from 'react-awesome-reveal';
 
 const AllClasses = () => {
+    const[classes] = useClasses()
     return (
-        <div>
-            
-        </div>
+        <section className='my-14'>
+            <Slide triggerOnce delay={3}>
+                <p className='text-center font-bold text-2xl text-secondary'>Explore Our Diverse Range of Music Classes: Ignite Your Passion for Learning</p>
+                <p className='text-center my-3 font-semibold'>Welcome to our expansive collection of music classes! Prepare to immerse yourself in a world of musical exploration as you delve into our diverse range of offerings. From beginner-friendly courses to advanced workshops, we have something to suit every skill level and interest.</p>
+            </Slide>
+            <div className='flex items-center justify-center mt-14'>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                {
+                        classes.map(singleClass => <AllClass
+                            key={singleClass._id}
+                            singleClass={singleClass}
+                        ></AllClass>)
+                    }
+                </div>
+
+            </div>
+        </section>
     );
 };
 
