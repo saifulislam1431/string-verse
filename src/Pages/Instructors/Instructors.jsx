@@ -11,7 +11,7 @@ const Instructors = () => {
                 <p className='text-center font-bold text-2xl text-secondary'>Meet Our Talented Instructors: Discover a World of Musical Expertise</p>
                 <p className='text-center my-3 font-semibold'>Welcome to our vibrant world of talented instructors! Prepare to embark on an exciting musical journey as you get to know our exceptional team of instructors.</p>
             </Slide>
-            <div className='flex items-center justify-center'>
+            <div className='flex items-center justify-center mt-10'>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {
