@@ -4,8 +4,11 @@ import logo from "../../../assets/logo/plectrum (1).png"
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAdmin from '../../../Hooks/useAdmin';
 const Navbar = () => {
     const{user,logOut} = useAuth();
+    const [isAdmin] = useAdmin()
+    const isInstructor = false; 
     // const user = true
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "lightThem")
     const [subMenu, setSubMenu] = useState(false)
@@ -60,7 +63,7 @@ const Navbar = () => {
         </li>
 
         <li>
-            <NavLink to="/dashboard/selectedClass" className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
+            <NavLink to={isAdmin ? "/dashboard/manageClass" : isInstructor ? "/dashboard/myClasses" : "/dashboard/selectedClass"} className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
         </li>
 
 <li className="w-[110px]">

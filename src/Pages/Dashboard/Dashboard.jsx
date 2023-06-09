@@ -4,10 +4,11 @@ import { HiBars3BottomLeft, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlin
 import { CiWallet,CiViewBoard, CiHome, CiEdit, CiUser } from "react-icons/ci";
 import logo from "../../assets/logo/plectrum (1).png";
 import useAuth from '../../Hooks/useAuth';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
     const{user} = useAuth();
-    const isAdmin = true;
+    const isAdmin = useAdmin();
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -46,7 +47,7 @@ const Dashboard = () => {
 
                     <NavLink to="/dashboard/payment" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><CiWallet className='inline-flex items-center h-6 w-6'/> Payment</NavLink>
 
-                    
+
                     <NavLink to="/dashboard/paymentHistory" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><CiViewBoard className='inline-flex items-center h-6 w-6'/> Payment History</NavLink>
                          </>
                     }

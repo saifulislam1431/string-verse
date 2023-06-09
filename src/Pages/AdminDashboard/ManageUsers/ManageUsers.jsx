@@ -1,17 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
-    const [users , setUsers] = useState([]);
 const isAdmin = false;
 const isInstructor = false;
 
-    useEffect(() => {
-        axiosSecure.get("/users")
-            .then(res => setUsers(res.data))
-    }, [])
+
+const{data: users = [] , refetch}=useQuery({
+    queryKey:["users"],
+    queryFn:async()=>{
+        const res = await axiosSecure.get("/users")
+        return res.data;
+    }
+})
+
+
+
+
+const handleAdmin = async(user) =>{
+    
+    const res = await axiosSecure.patch(`/users/admin/${user?._id}`);
+   if(res.data.modifiedCount > 0){
+    refetch();
+    Swal.fire({
+        title: 'Success!',
+        text: `${user?.name} is an Admin Now!`,
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+   }
+    
+
+
+}
+
     return (
         <section>
             <SectionTitle
@@ -48,10 +74,10 @@ const isInstructor = false;
             <td className='font-semibold'>
 {user?.email}
             </td>
-            <td className='font-bold px-2 py-1 text-green-500'>{isAdmin ? "Admin" : isInstructor ? "Instructor" : "Student"}</td>
+            <td className='font-bold px-2 py-1 text-green-500'>{user?.role == "admin" ? "Admin" : user?.role == "instructor" ? "Instructor" : "Student"}</td>
             <th>
-              <button className="myBtn">Make Admin</button>
-              <button className="ml-2 px-3 py-1 border border-accent rounded-md text-accent hover:bg-accent hover:text-white">Make Instructor</button>
+              <button className="myBtn" onClick={()=>handleAdmin(user)} disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Admin</button>
+              <button className="ml-2 px-3 py-1 border border-accent rounded-md text-accent hover:bg-accent hover:text-white disabled:opacity-30 disabled:cursor-not-allowed" disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Instructor</button>
             </th>
           </tr>)
       }
