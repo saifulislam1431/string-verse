@@ -5,10 +5,11 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
+import useInstructor from '../../../Hooks/useInstructor';
 const Navbar = () => {
     const{user,logOut} = useAuth();
     const [isAdmin] = useAdmin()
-    const isInstructor = false; 
+    const [isInstructor] = useInstructor(); 
     // const user = true
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "lightThem")
     const [subMenu, setSubMenu] = useState(false)
@@ -63,7 +64,7 @@ const Navbar = () => {
         </li>
 
         <li>
-            <NavLink to={isAdmin ? "/dashboard/manageClass" : isInstructor ? "/dashboard/myClasses" : "/dashboard/selectedClass"} className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
+            <NavLink to={isAdmin ? "/dashboard/manageClass" : isInstructor ? "/dashboard/myClass" : "/dashboard/selectedClass"} className={({ isActive }) => (isActive ? "active" : "default")}>Dashboard </NavLink>
         </li>
 
 <li className="w-[110px]">

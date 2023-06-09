@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { HiBars3BottomLeft, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup } from "react-icons/hi2";
+import { HiBars3BottomLeft, HiListBullet, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup, HiPlus, HiPlusCircle } from "react-icons/hi2";
 import { CiWallet,CiViewBoard, CiHome, CiEdit, CiUser } from "react-icons/ci";
 import logo from "../../assets/logo/plectrum (1).png";
 import useAuth from '../../Hooks/useAuth';
 import useAdmin from '../../Hooks/useAdmin';
+import useInstructor from '../../Hooks/useInstructor';
 
 const Dashboard = () => {
     const{user} = useAuth();
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     console.log(isAdmin);
     return (
@@ -39,6 +41,15 @@ const Dashboard = () => {
 
                          <NavLink to="/dashboard/manageUsers" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlineUserGroup className='inline-flex items-center h-6 w-6'/> Manage Users</NavLink>
                         </>
+                         :
+                         isInstructor ?
+                         <>
+
+<NavLink to="/dashboard/addClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiPlus className='inline-flex items-center h-6 w-6'/> Add A class</NavLink>
+
+<NavLink to="/dashboard/myClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiListBullet className='inline-flex items-center h-6 w-6'/> My Classes</NavLink>
+
+                         </>
                          :
                          <>
                          <NavLink to="/dashboard/selectedClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlinePlus className='inline-flex items-center h-6 w-6'/> My Selected Classes</NavLink>
