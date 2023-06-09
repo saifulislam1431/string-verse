@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useLocation, useNavigation } from "react-router-dom";
 import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/Error/ErrorPage";
@@ -15,6 +15,10 @@ import PaymentHistory from "../Pages/UserDashboard/PaymentHistory/PaymentHistory
 import ManageClass from "../Pages/AdminDashboard/ManageClass/ManageClass";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers/ManageUsers";
 import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import AddClass from "../Pages/InstructorsDashboard/addClass/AddClass";
+import MyClasses from "../Pages/InstructorsDashboard/MyClasses/MyClasses";
+
 
 const router = createBrowserRouter([
     {
@@ -72,6 +76,14 @@ const router = createBrowserRouter([
             {
                 path:"manageUsers",
                 element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+            },
+            {
+                path:"addClass",
+                element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
+            },
+            {
+                path:"myClass",
+                element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             }
         ]
     }
