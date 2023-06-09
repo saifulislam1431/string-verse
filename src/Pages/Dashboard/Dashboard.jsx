@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { HiBars3BottomLeft, HiOutlineCheckBadge, HiOutlinePlus } from "react-icons/hi2";
-import { CiWallet,CiViewBoard, CiHome, CiEdit } from "react-icons/ci";
+import { HiBars3BottomLeft, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup } from "react-icons/hi2";
+import { CiWallet,CiViewBoard, CiHome, CiEdit, CiUser } from "react-icons/ci";
 import logo from "../../assets/logo/plectrum (1).png";
 import useAuth from '../../Hooks/useAuth';
 
 const Dashboard = () => {
-    const{user} = useAuth()
+    const{user} = useAuth();
+    const isAdmin = true;
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -25,10 +26,30 @@ const Dashboard = () => {
                     </Link>
                     {/* Sidebar content here */}
                     
-                    <NavLink to="/dashboard/selectedClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlinePlus className='inline-flex items-center h-6 w-6'/> My Selected Classes</NavLink>
+                    
+
+                    {
+                        isAdmin ? 
+                        <>
+                         <NavLink to="/dashboard/manageClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlinePencilSquare className='inline-flex items-center h-6 w-6'/> Manage Classes</NavLink>
+
+
+                         <NavLink to="/dashboard/manageUsers" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlineUserGroup className='inline-flex items-center h-6 w-6'/> Manage Users</NavLink>
+                        </>
+                         :
+                         <>
+                         <NavLink to="/dashboard/selectedClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlinePlus className='inline-flex items-center h-6 w-6'/> My Selected Classes</NavLink>
+
+
                     <NavLink to="/dashboard/enrolled" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlineCheckBadge className='inline-flex items-center h-6 w-6'/> My Enrolled Classes</NavLink>
+
+
                     <NavLink to="/dashboard/payment" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><CiWallet className='inline-flex items-center h-6 w-6'/> Payment</NavLink>
+
+                    
                     <NavLink to="/dashboard/paymentHistory" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><CiViewBoard className='inline-flex items-center h-6 w-6'/> Payment History</NavLink>
+                         </>
+                    }
 
                     <li className='my-8 divide-x-4'>
 
