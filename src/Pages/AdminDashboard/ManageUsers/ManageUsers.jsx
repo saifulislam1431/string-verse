@@ -77,7 +77,7 @@ const handleAdmin = async(user) =>{
             <td className='font-bold px-2 py-1 text-green-500'>{user?.role == "admin" ? "Admin" : user?.role == "instructor" ? "Instructor" : "Student"}</td>
             <th>
               <button className="myBtn" onClick={()=>handleAdmin(user)} disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Admin</button>
-              <button className="ml-2 px-3 py-1 border border-accent rounded-md text-accent hover:bg-accent hover:text-white disabled:opacity-30 disabled:cursor-not-allowed" disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Instructor</button>
+              <button className="myBtnSec ml-2" disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Instructor</button>
             </th>
           </tr>)
       }
