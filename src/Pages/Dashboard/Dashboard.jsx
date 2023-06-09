@@ -8,7 +8,9 @@ import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
     const{user} = useAuth();
-    const isAdmin = useAdmin();
+    const [isAdmin] = useAdmin();
+
+    console.log(isAdmin);
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

@@ -4,7 +4,7 @@ import useClasses from '../../../Hooks/useClasses';
 
 const ManageClass = () => {
     const[classes, ,refetch] = useClasses();
-    console.log(classes);
+    // console.log(classes);
     return (
         <section>
             <SectionTitle

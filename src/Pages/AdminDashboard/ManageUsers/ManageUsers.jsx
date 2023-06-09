@@ -37,6 +37,22 @@ const handleAdmin = async(user) =>{
 
 
 }
+const handleInstructor = async(user) =>{
+    
+    const res = await axiosSecure.patch(`/users/instructor/${user?._id}`);
+   if(res.data.modifiedCount > 0){
+    refetch();
+    Swal.fire({
+        title: 'Success!',
+        text: `${user?.name} is an Instructor Now!`,
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+   }
+    
+
+
+}
 
     return (
         <section>
@@ -77,7 +93,7 @@ const handleAdmin = async(user) =>{
             <td className='font-bold px-2 py-1 text-green-500'>{user?.role == "admin" ? "Admin" : user?.role == "instructor" ? "Instructor" : "Student"}</td>
             <th>
               <button className="myBtn" onClick={()=>handleAdmin(user)} disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Admin</button>
-              <button className="myBtnSec ml-2" disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Instructor</button>
+              <button onClick={()=>handleInstructor(user)} className="myBtnSec ml-2" disabled={user?.role === "admin" || user?.role === "instructor" ? true : false}>Make Instructor</button>
             </th>
           </tr>)
       }
