@@ -3,6 +3,7 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useClassCart from '../../../Hooks/useClassCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SelectedClasses = () => {
     const [classesCart, refetch] = useClassCart();
@@ -101,7 +102,7 @@ const SelectedClasses = () => {
                                 </td>
                                 <td className='font-bold text-lg'>Total Price: <span className='text-primary'>$ {totalPrice}</span></td>
                                 <th>
-                                    <button className='myBtn'>pay</button>
+                                    <Link to="/dashboard/payment" className='myBtn'>pay</Link>
                                 </th>
                             </tr>
 
