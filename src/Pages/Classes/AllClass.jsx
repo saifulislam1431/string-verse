@@ -5,13 +5,15 @@ import Swal from 'sweetalert2';
 import useClassCart from '../../Hooks/useClassCart';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
+import useEnroll from '../../Hooks/useEnroll';
 
 const AllClass = ({ singleClass }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [, refetch] = useClassCart();
-  const { _id, className, image, instructorName, availableSeats, price } = singleClass;
+  const [classesCart , refetch] = useClassCart();
+  const [enrollClasses] = useEnroll();
+  const { _id, className, image, instructorName, availableSeats, price} = singleClass;
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
@@ -76,7 +78,7 @@ const AllClass = ({ singleClass }) => {
             <p className={`font-medium ${availableSeats <= 0 ? "text-white" : "text-base"}`}>Price: <span className='font-semibold text-primary'>$ {price}</span></p>
           </div>
           <div className="card-actions justify-end">
-            <button className="myBtn" disabled={availableSeats <= 0 || isAdmin || isInstructor? true : false} onClick={handleSelect}>Select</button>
+            <button className="myBtn" disabled={availableSeats <= 0 || isAdmin || isInstructor || classesCart.find(classCart=> classCart?.classId === _id) || enrollClasses.find(id=> id._id === _id) ? true : false} onClick={handleSelect}>Select</button>
           </div>
         </div>
       </div>
