@@ -1,10 +1,55 @@
 import React from 'react';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useClasses from '../../../Hooks/useClasses';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const ManageClass = () => {
     const[classes, ,refetch] = useClasses();
+    const[axiosSecure] = useAxiosSecure();
+
     // console.log(classes);
+    const handleApproved = async(item) =>{
+      // console.log(item);
+      const updateData = {
+        status: "approved"
+      }
+      // console.log(updateData);
+
+      const res = await axiosSecure.patch(`/popular-classes/${item?._id}`, updateData)
+      if(res.data.modifiedCount > 0){
+        refetch()
+        Swal.fire({
+          title: 'Success!',
+          text: "Class Approved",
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+    }
+
+    const handleDeny = async(item) =>{
+      // console.log(item);
+      const updateData = {
+        status: "deny"
+      }
+      // console.log(updateData);
+
+      const res = await axiosSecure.patch(`/popular-classes/${item?._id}`, updateData)
+      if(res.data.modifiedCount > 0){
+        refetch()
+        Swal.fire({
+          title: 'Success!',
+          text: "Class Deny",
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+    }
+
+
+
+
     return (
         <section>
             <SectionTitle
@@ -50,8 +95,9 @@ const ManageClass = () => {
         <td className='font-semibold text-center'>${singleClass?.price}</td>
         <td className='font-semibold text-center'>{singleClass?.status}</td>
         <th className='flex flex-col items-start justify-start'>
-          <button className='myBtn' disabled={singleClass?.status === "approved" || singleClass?.status === "deny" ? true :false}>Approve</button>
-          <button className='myBtnSec' disabled={singleClass?.status === "approved" || singleClass?.status === "deny" ? true :false}>Deny</button>
+          <button onClick={()=>handleApproved(singleClass)} className='myBtn' disabled={singleClass?.status === "approved" || singleClass?.status === "deny" ? true :false}>Approve</button>
+
+          <button onClick={()=>handleDeny(singleClass)} className='myBtnSec' disabled={singleClass?.status === "approved" || singleClass?.status === "deny" ? true :false}>Deny</button>
           {/* <button className='myBtnThr' >Feedback</button> */}
           <label htmlFor="my_modal_6" className="myBtnThr">Feedback</label>
         </th>

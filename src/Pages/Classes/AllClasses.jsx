@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useClasses from '../../Hooks/useClasses';
 import AllClass from './AllClass';
 import { Slide } from 'react-awesome-reveal';
 
 const AllClasses = () => {
-    const[classes] = useClasses()
+    const[classes] = useClasses();
+    const[allClasses , setAllClasses] = useState([])
+    useEffect(()=>{
+        const approveClasses = classes.filter(apc=>apc.status === "approved")
+        setAllClasses(approveClasses)
+    },[classes])
+
+
     return (
         <section className='my-14'>
             <Slide triggerOnce delay={3}>
@@ -15,7 +22,7 @@ const AllClasses = () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {
-                        classes.map(singleClass => <AllClass
+                        allClasses.map(singleClass => <AllClass
                             key={singleClass._id}
                             singleClass={singleClass}
                         ></AllClass>)
