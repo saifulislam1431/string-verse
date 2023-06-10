@@ -17,7 +17,7 @@ const Navbar = () => {
     const handleToggle = e => {
 
         if (e.target.checked) {
-            setTheme("forest")
+            setTheme("night")
         } else {
             setTheme("lightThem")
         }

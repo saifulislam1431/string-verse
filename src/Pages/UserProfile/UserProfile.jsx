@@ -23,7 +23,6 @@ const UserProfile = () => {
             }
         }
     })
-    console.log(userData);
 
 
     return (

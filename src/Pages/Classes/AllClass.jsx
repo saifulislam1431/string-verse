@@ -78,7 +78,7 @@ const AllClass = ({ singleClass }) => {
             <p className={`font-medium ${availableSeats <= 0 ? "text-white" : "text-base"}`}>Price: <span className='font-semibold text-primary'>$ {price}</span></p>
           </div>
           <div className="card-actions justify-end">
-            <button className="myBtn" disabled={availableSeats <= 0 || isAdmin || isInstructor || classesCart.find(classCart=> classCart?.classId === _id) || enrollClasses.find(id=> id._id === _id) ? true : false} onClick={handleSelect}>Select</button>
+            <button className="myBtn" disabled={availableSeats <= 0 || isAdmin || isInstructor || classesCart?.find(classCart=> classCart?.classId === _id) || enrollClasses?.find(id=> id._id === _id) ? true : false} onClick={handleSelect}>Select</button>
           </div>
         </div>
       </div>

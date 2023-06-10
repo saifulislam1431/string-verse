@@ -11,6 +11,7 @@ const useEnroll = () => {
         enabled: !loading && !!user?.email,
         queryFn:async()=>{
             const res = await axiosSecure.get(`/enrollDetails?email=${user?.email}`);
+            
             return res.data;
         }
     })

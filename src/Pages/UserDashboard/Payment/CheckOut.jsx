@@ -85,7 +85,7 @@ const CheckOut = ({ price, cart, refetch }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.result.insertedId && data.deletedRes.deletedCount > 0) {
                         refetch();
                         Swal.fire({

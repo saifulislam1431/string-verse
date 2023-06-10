@@ -21,7 +21,7 @@ const Blogs = () => {
                 <p className='text-center my-3 font-semibold'>Immerse yourself in the captivating world of music through our thought-provoking and informative blog. Our collection of articles written by passionate musicians and industry experts covers a wide range of topics.</p>
             </Slide>
 
-            <div className='flex flex-col lg:flex-row justify-center my-10 gap-10'>
+            <div className='flex flex-col lg:flex-row items-center justify-center my-10 gap-10'>
 
                 <div className='flex flex-col lg:flex-row justify-center gap-10'>
 {
@@ -54,7 +54,7 @@ const Blogs = () => {
                 </div>
                 <div className='flex flex-col justify-center gap-10'>
 {
-    blogs.slice(2,5).map(blog=><div key={blog?._id} className="flex items-start  border-b-2 border-secondary  gap-5 w-[450px]">
+    blogs.slice(2,5).map(blog=><div key={blog?._id} className="flex items-start  border-b-2 border-secondary  gap-5 lg:w-[450px]">
     <figure><img src={blog.img} alt="Shoes" className='w-32 h-32 mask mask-squircle'/></figure>
     <div className="">
       <h2 className="card-title text-primary">{blog.name}</h2>

@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 
 const SelectedClasses = () => {
     const [classesCart, refetch] = useClassCart();
+    console.log(classesCart);
     const totalPrice = classesCart.reduce((sum, item) => item.price + sum, 0)
+    console.log(totalPrice);
 
     const handleDelete = (id) => {
 
