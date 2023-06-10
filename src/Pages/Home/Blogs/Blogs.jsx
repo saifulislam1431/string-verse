@@ -1,17 +1,16 @@
 import React from 'react';
 import { Slide } from 'react-awesome-reveal';
-import { FaQuoteLeft } from "react-icons/fa";
 import { Rating } from '@smastrom/react-rating';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const Blogs = () => {
-    const [axiosSecure] = useAxiosSecure();
     
     const { data: blogs = [] } = useQuery({
-        queryKey: ['reviews'],
+        queryKey: ['blogs'],
         queryFn: async () => {
-            const res = await axiosSecure.get("/blogs");
+            const res = await axios.get("http://localhost:5000/blogs");
             return res.data;
         }
     })

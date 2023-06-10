@@ -1,50 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
-import useClasses from '../../../Hooks/useClasses';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
+import { HiOutlinePlay } from "react-icons/hi2";
+
 
 const EnrolledClasses = () => {
-    const { user } = useAuth()
-    const [classes] = useClasses();
+    const { user, loading } = useAuth()
     const [axiosSecure] = useAxiosSecure();
-    const [paymentData, setPaymentData] = useState([]);
-    const [enrollId, setEnrollId] = useState([]);
-    const [allId, setAllId] = useState({});
+    const [enrollClasses , setEnrollClasses] = useState([]);
 
-
-
-    // console.log(classes);
     useEffect(() => {
-        axiosSecure.get(`/payment?email=${user?.email}`)
+        axiosSecure.get(`/enrollDetails?email=${user?.email}`)
             .then(res => {
-                setPaymentData(res.data)
+                setEnrollClasses(res.data);
             })
     }, [])
-
-
-    useEffect(() => {
-
-        if (paymentData.length !== 0) {
-            let arr = [];
-            const paymentId = paymentData.map(pd => pd.classId);
-
-            for (const allId of paymentId) {
-                arr = [...arr, ...allId];
-
-            }
-            setEnrollId(arr)
-        }
-
-    }, [paymentData])
-
-    
-
- 
- 
-
-    // console.log(arr);
-
 
 
     return (
@@ -52,18 +23,28 @@ const EnrolledClasses = () => {
             <SectionTitle
                 subTitle="Enrolled Classes"
             ></SectionTitle>
-            <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
+<div className='flex items-center justify-center lg:mx-5'>
+
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+        {
+enrollClasses.map(enrollClass=>            
+    <div key={enrollClass._id} className="card card-compact w-84 bg-base-100 shadow-xl">
+        <figure><img src={enrollClass?.image} alt="Image" className='h-40 w-full'/></figure>
+        <div className="card-body">
+            <h2 className="card-title">{enrollClass?.className}</h2>
+            <div className='space-y-3 mb-3'>
+                <p className='font-semibold'>Instructor Name: {enrollClass?.instructorName}</p>
+                <p className='font-semibold'>Instructor Email: {enrollClass?.instructorEmail}</p>
             </div>
+            <div className="card-actions justify-end">
+                <button className="bg-primary px-2 py-2 rounded-full"><HiOutlinePlay className='h-6 w-6 text-white'/></button>
+            </div>
+        </div>
+    </div>)
+        }
+    </div>
+
+</div>
         </section>
     );
 };

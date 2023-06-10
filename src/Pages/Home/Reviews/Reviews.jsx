@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Slide } from 'react-awesome-reveal';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -9,14 +8,14 @@ import { Navigation, Autoplay } from "swiper";
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
 import { FaQuoteLeft } from "react-icons/fa";
+import axios from 'axios';
 
 const Reviews = () => {
-    const [axiosSecure] = useAxiosSecure();
 
     const { data: reviews = [] } = useQuery({
         queryKey: ['reviews'],
         queryFn: async () => {
-            const res = await axiosSecure.get("/reviews");
+            const res = await axios.get("http://localhost:5000/reviews");
             return res.data;
         }
     })
