@@ -1,0 +1,43 @@
+[
+    {
+      "img": "https://i.ibb.co/jkcWtP3/piano.jpg",
+      "name": "Mastering the Piano: Tips for Beginners",
+      "author": "Sarah Thompson",
+      "publishDate": "2023-05-15",
+      "readTime": "5 mins",
+      "rating": 4.8
+    },
+    {
+      "img": "https://i.ibb.co/4S3yS6C/guiter.jpg",
+      "name": "The Art of Shredding: Advanced Guitar Techniques",
+      "author": "John Richards",
+      "publishDate": "2023-04-28",
+      "readTime": "7 mins",
+      "rating": 4.5
+    },
+    {
+      "img": "  https://i.ibb.co/n8mj0Br/Demystifying.jpg",
+      "name": "Demystifying Music Theory: A Beginner's Guide",
+      "author": "Emma Wilson",
+      "publishDate": "2023-03-10",
+      "readTime": "6 mins",
+      "rating": 4.9
+    },
+    {
+      "img": "https://i.ibb.co/kJMv4xw/Voice.jpg",
+      "name": "Finding Your Voice: Vocal Warm-Up Exercises",
+      "author": "David Anderson",
+      "publishDate": "2023-02-17",
+      "readTime": "4 mins",
+      "rating": 4.3
+    },
+    {
+      "img": "https://i.ibb.co/nPg6BwC/Rhythmic.jpg",
+      "name": "Rhythmic Adventures: Exploring Different Drumming Styles",
+      "author": "Michael Johnson",
+      "publishDate": "2023-01-05",
+      "readTime": "8 mins",
+      "rating": 4.7
+    }
+  ]
+  

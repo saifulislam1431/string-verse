@@ -63,7 +63,7 @@ const MyClasses = () => {
                   <td className='font-bold text-base text-center'>
                     {singleClass?.availableSeats}
                   </td>
-                  <td className='font-bold text-base'>$ {singleClass?.price}</td>
+                  <td className='font-bold text-base'>${singleClass?.price}</td>
                   <td className='font-bold text-base text-secondary'>{singleClass?.status}</td>
                   <td className='font-bold text-base text-center'>{singleClass?.numberOfStudents}</td>
                   <td>
@@ -77,7 +77,7 @@ const MyClasses = () => {
                   <div className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">What Admin Say?</h3>
-                      <p className="py-4">{singleClass?.feedback}</p>
+                      <p className="py-4 font-medium">{singleClass?.feedback}</p>
                       <div className="modal-action">
                         <label htmlFor={`my_modal_${singleClass._id}`} className="btn">Ok</label>
                       </div>

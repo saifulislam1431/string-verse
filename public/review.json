@@ -1,0 +1,28 @@
+[
+    {
+      "studentName": "Ena Johnson",
+      "rating": 4.5,
+      "comment": "I had an amazing experience at this music school. The instructors were knowledgeable and patient. They helped me improve my piano skills significantly. Highly recommended!"
+    },
+    {
+      "studentName": "Mick Thompson",
+      "rating": 5,
+      "comment": "I can't say enough good things about this school. The teachers are top-notch, and the curriculum is well-structured. I've learned so much about playing the guitar, and I'm thrilled with my progress. The staff is also very friendly and accommodating. A fantastic place to learn music!"
+    },
+    {
+      "studentName": "Leo Lee",
+      "rating": 4,
+      "comment": "I enrolled in violin lessons here, and I'm really pleased with my experience. The instructor is highly skilled and provides constructive feedback. The school has a great learning environment, and I always look forward to my lessons. Definitely worth it!"
+    },
+    {
+      "studentName": "homies Rodriguez",
+      "rating": 4.8,
+      "comment": "I've been taking drum lessons at this school for a few months, and I'm extremely satisfied with my progress. The teacher is talented and passionate about music. The lessons are well-paced and challenging, and I appreciate the personalized approach. I highly recommend this school for anyone interested in learning drums!"
+    },
+    {
+      "studentName": "Stave Smith",
+      "rating": 4.2,
+      "comment": "I had a great time learning to play the flute at this school. The instructor was patient and encouraging, which helped boost my confidence. The school provides a supportive and friendly atmosphere, making the learning process enjoyable. I'm grateful for the skills I've gained here!"
+    }
+  ]
+  

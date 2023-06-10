@@ -9,8 +9,9 @@ const EnrolledClasses = () => {
     const [classes] = useClasses();
     const [axiosSecure] = useAxiosSecure();
     const [paymentData, setPaymentData] = useState([]);
-    const [enrollId , setEnrollId] = useState([]);
-   
+    const [enrollId, setEnrollId] = useState([]);
+    const [allId, setAllId] = useState({});
+
 
 
     // console.log(classes);
@@ -23,20 +24,25 @@ const EnrolledClasses = () => {
 
 
     useEffect(() => {
-        
+
         if (paymentData.length !== 0) {
             let arr = [];
             const paymentId = paymentData.map(pd => pd.classId);
 
             for (const allId of paymentId) {
-                arr = [...arr , ...allId]
-                
+                arr = [...arr, ...allId];
+
             }
             setEnrollId(arr)
         }
+
     }, [paymentData])
 
-console.log(enrollId);
+    
+
+ 
+ 
+
     // console.log(arr);
 
 
@@ -47,7 +53,16 @@ console.log(enrollId);
                 subTitle="Enrolled Classes"
             ></SectionTitle>
             <div>
-
+            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
             </div>
         </section>
     );
