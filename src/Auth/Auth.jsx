@@ -53,7 +53,7 @@ const Auth = ({ children }) => {
 
             if (currentUser) {
                 // const email= currentUser.email;
-                axios.post("http://localhost:5000/jwt", {
+                axios.post("https://string-verse-server.vercel.app/jwt", {
                     email: currentUser.email
                 }).then(data => {
                     // console.log(data.data.token);

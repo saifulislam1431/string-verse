@@ -16,7 +16,6 @@ const MyClasses = () => {
     }
   })
 
-  console.log(classes);
   return (
     <section>
       <SectionTitle

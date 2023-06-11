@@ -44,7 +44,7 @@ const AllClass = ({ singleClass }) => {
         email: user?.email
       }
       // console.log(addedData);
-      fetch("http://localhost:5000/selected-classes-cart", {
+      fetch("https://string-verse-server.vercel.app/selected-classes-cart", {
         method: "POST",
         headers: {
           "content-type": "application/json"

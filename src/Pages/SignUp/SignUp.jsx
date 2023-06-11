@@ -46,7 +46,7 @@ const SignUp = () => {
             const loggedUser = res.user;
             updateUser(loggedUser , data?.name , data?.photo)
             .then(()=>{
-                fetch("http://localhost:5000/users" , {
+                fetch("https://string-verse-server.vercel.app/users" , {
                     method:"POST",
                     headers:{
                         "content-type" : "application/json"

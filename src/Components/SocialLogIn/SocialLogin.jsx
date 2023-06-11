@@ -19,7 +19,7 @@ const SocialLogin = () => {
                     photo: loggedUser.photoURL
                 }
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://string-verse-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

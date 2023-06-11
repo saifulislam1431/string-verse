@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const SelectedClasses = () => {
     const [classesCart, refetch] = useClassCart();
-    console.log(classesCart);
+
     const totalPrice = classesCart.reduce((sum, item) => item.price + sum, 0)
-    console.log(totalPrice);
+
 
     const handleDelete = (id) => {
 
@@ -23,7 +23,7 @@ const SelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selected-classes-cart/${id}`, {
+                fetch(`https://string-verse-server.vercel.app/selected-classes-cart/${id}`, {
                     method: "DELETE",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem("access-token")}`

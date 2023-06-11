@@ -10,7 +10,7 @@ const stripePromise = loadStripe(`${import.meta.env.VITE_PAYMENT_PK}`)
 const Payment = () => {
     const [classesCart , refetch] = useClassCart();
     const total = classesCart.reduce((sum , item)=> item.price + sum , 0)
-    const price = parseInt(total.toFixed(2))
+    const price = parseInt(total)
     return (
         <section>
             <SectionTitle
