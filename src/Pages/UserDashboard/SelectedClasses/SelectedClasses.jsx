@@ -3,9 +3,15 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useClassCart from '../../../Hooks/useClassCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
+import Loading from '../../LoadingPage/Loading';
+import { Helmet } from 'react-helmet';
 
 const SelectedClasses = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const [classesCart, refetch] = useClassCart();
 
     const totalPrice = classesCart.reduce((sum, item) => item.price + sum, 0)
@@ -48,6 +54,9 @@ const SelectedClasses = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>String | Payment History</title>
+            </Helmet>
             <SectionTitle
                 subTitle="My Selected Classes"></SectionTitle>
             <div className='my-10 lg:mx-10'>

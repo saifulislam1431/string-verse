@@ -1,13 +1,18 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useClassCart from '../../Hooks/useClassCart';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
 import useEnroll from '../../Hooks/useEnroll';
+import Loading from '../LoadingPage/Loading';
 
 const AllClass = ({ singleClass }) => {
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+      return <Loading></Loading>
+  }
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();

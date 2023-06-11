@@ -5,8 +5,14 @@ import "./PaymentCss/Payment.css"
 import Loading from '../../LoadingPage/Loading';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const CheckOut = ({ price, cart, refetch }) => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const [axiosSecure] = useAxiosSecure()
     const { user } = useAuth();
     const stripe = useStripe();
@@ -104,6 +110,9 @@ const CheckOut = ({ price, cart, refetch }) => {
 
     return (
         <section>
+            <Helmet>
+                <title>String | Check Out</title>
+            </Helmet>
             <form onSubmit={handleSubmit} className='flex flex-col'>
                 <CardElement
                     options={{

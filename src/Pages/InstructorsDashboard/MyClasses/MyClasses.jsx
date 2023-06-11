@@ -4,8 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
 import { FaEdit } from 'react-icons/fa';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const MyClasses = () => {
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+      return <Loading></Loading>
+  }
   const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth()
   const { data: classes = [] } = useQuery({
@@ -18,6 +25,9 @@ const MyClasses = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>String | Dashboard-My Classes</title>
+      </Helmet>
       <SectionTitle
         subTitle="My Classes"
       ></SectionTitle>

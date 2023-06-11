@@ -1,19 +1,28 @@
 import React from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigation } from 'react-router-dom';
 import { HiBars3BottomLeft, HiListBullet, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup, HiPlus, HiPlusCircle } from "react-icons/hi2";
 import { CiWallet,CiViewBoard, CiHome, CiEdit, CiUser } from "react-icons/ci";
 import logo from "../../assets/logo/plectrum (1).png";
 import useAuth from '../../Hooks/useAuth';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
+import { Helmet } from 'react-helmet';
+import Loading from '../LoadingPage/Loading';
 
 const Dashboard = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const{user} = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
 
     return (
         <div className="drawer lg:drawer-open">
+            <Helmet>
+                <title>String | Dashboard</title>
+            </Helmet>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content ">
                 {/* Page content here */}

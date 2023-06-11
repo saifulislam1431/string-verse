@@ -2,9 +2,16 @@ import React from 'react';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import { HiOutlinePlay } from "react-icons/hi2";
 import useEnroll from '../../../Hooks/useEnroll';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
-const EnrolledClasses = () => {
+const EnrolledClasses = () => {    
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
 
     const [enrollClasses] = useEnroll();
 
@@ -12,6 +19,9 @@ const EnrolledClasses = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>String | Dashboard-Enroll Classes</title>
+            </Helmet>
             <SectionTitle
                 subTitle="Enrolled Classes"
             ></SectionTitle>

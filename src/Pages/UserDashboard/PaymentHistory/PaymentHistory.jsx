@@ -3,8 +3,15 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import moment from 'moment';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const PaymentHistory = () => {
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+      return <Loading></Loading>
+  }
     const{user} = useAuth();
     const[axiosSecure] = useAxiosSecure();
     const[histories , setHistories] = useState([]);
@@ -18,6 +25,9 @@ axiosSecure.get(`/payment?email=${user?.email}`)
 
     return (
         <section>
+          <Helmet>
+            <title>String | Payment History</title>
+          </Helmet>
             <SectionTitle
             subTitle="Payment History"
             ></SectionTitle>

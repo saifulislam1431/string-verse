@@ -8,6 +8,7 @@ import animation from "../../assets/animation/78126-secure-login.json";
 import Lottie from "lottie-react";
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
 
@@ -88,6 +89,9 @@ const SignUp = () => {
     }
     return (
         <section className='flex items-center justify-center min-h-[calc(100vh-100px)]'>
+            <Helmet>
+                <title>String | Sign Up</title>
+            </Helmet>
         <div>
             <div className='text-center my-10'>
             <NavLink to="/" className="inline-flex items-center gap-2">

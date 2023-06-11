@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import useAuth from './useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigation } from 'react-router-dom';
+import Loading from '../Pages/LoadingPage/Loading';
 
 
 
@@ -10,6 +11,10 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const { logOut } = useAuth();
     const navigate = useNavigate();
     useEffect(()=>{

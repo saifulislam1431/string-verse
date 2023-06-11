@@ -3,8 +3,15 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useClasses from '../../../Hooks/useClasses';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const ManageClass = () => {
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+      return <Loading></Loading>
+  }
   const [classes, , refetch] = useClasses();
   const [axiosSecure] = useAxiosSecure();
   const [message , setMessage] = useState("");
@@ -84,6 +91,9 @@ const ManageClass = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>String | Dashboard-Manage Classes</title>
+      </Helmet>
       <SectionTitle
         subTitle="Manage Classes"
       ></SectionTitle>

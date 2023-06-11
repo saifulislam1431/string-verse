@@ -4,8 +4,15 @@ import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import useClasses from '../../../Hooks/useClasses';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const AddClass = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const[, , refetch] = useClasses();
@@ -48,6 +55,9 @@ const AddClass = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>String | Dashboard-Add A Class</title>
+            </Helmet>
             <SectionTitle
                 subTitle="Add A Class"
             ></SectionTitle>

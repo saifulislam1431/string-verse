@@ -2,8 +2,14 @@ import React from 'react';
 import {useQuery} from "@tanstack/react-query";
 import useAuth from './useAuth';
 import useAxiosSecure from './useAxiosSecure';
+import { useNavigation } from 'react-router-dom';
+import Loading from '../Pages/LoadingPage/Loading';
 
 const useClassCart = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const{user , loading} = useAuth();
     const[axiosSecure] = useAxiosSecure();
 

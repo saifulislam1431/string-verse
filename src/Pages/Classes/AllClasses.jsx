@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useClasses from '../../Hooks/useClasses';
 import AllClass from './AllClass';
 import { Slide } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 const AllClasses = () => {
     const[classes] = useClasses();
@@ -14,6 +15,9 @@ const AllClasses = () => {
 
     return (
         <section className='my-14'>
+            <Helmet>
+                <title>String | All Classes</title>
+            </Helmet>
             <Slide triggerOnce delay={3}>
                 <p className='text-center font-bold text-2xl text-secondary'>Explore Our Diverse Range of Music Classes: Ignite Your Passion for Learning</p>
                 <p className='text-center my-3 font-semibold'>Welcome to our expansive collection of music classes! Prepare to immerse yourself in a world of musical exploration as you delve into our diverse range of offerings. From beginner-friendly courses to advanced workshops, we have something to suit every skill level and interest.</p>

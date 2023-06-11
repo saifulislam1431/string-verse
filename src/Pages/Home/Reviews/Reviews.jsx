@@ -9,8 +9,14 @@ import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
 import { FaQuoteLeft } from "react-icons/fa";
 import axios from 'axios';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
 
 const Reviews = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
 
     const { data: reviews = [] } = useQuery({
         queryKey: ['reviews'],

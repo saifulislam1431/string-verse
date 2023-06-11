@@ -3,8 +3,15 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { useNavigation } from 'react-router-dom';
+import Loading from '../../LoadingPage/Loading';
+import { Helmet } from 'react-helmet';
 
 const ManageUsers = () => {
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+      return <Loading></Loading>
+  }
     const [axiosSecure] = useAxiosSecure();
 const isAdmin = false;
 const isInstructor = false;
@@ -56,6 +63,9 @@ const handleInstructor = async(user) =>{
 
     return (
         <section>
+          <Helmet>
+            <title>String | Dashboard-Manage Users</title>
+          </Helmet>
             <SectionTitle
                 subTitle="Manage Users"
             ></SectionTitle>

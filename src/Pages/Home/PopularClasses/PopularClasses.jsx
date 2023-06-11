@@ -2,9 +2,16 @@ import React,{useState} from 'react';
 import { Fade, Slide } from "react-awesome-reveal";
 import useClasses from '../../../Hooks/useClasses';
 import PopularClass from './PopularClass';
+import { Helmet } from 'react-helmet';
+import Loading from '../../LoadingPage/Loading';
+import { useNavigation } from 'react-router-dom';
 
 
 const PopularClasses = () => {
+    const navigation = useNavigation();
+    if(navigation.state === "loading"){
+        return <Loading></Loading>
+    }
     const[classes] = useClasses();
 
     return (
