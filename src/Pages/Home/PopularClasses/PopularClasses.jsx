@@ -8,10 +8,7 @@ import { useNavigation } from 'react-router-dom';
 
 
 const PopularClasses = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const[classes] = useClasses();
 
     return (

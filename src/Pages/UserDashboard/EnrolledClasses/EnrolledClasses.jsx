@@ -8,10 +8,7 @@ import { Helmet } from 'react-helmet';
 
 
 const EnrolledClasses = () => {    
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
 
     const [enrollClasses] = useEnroll();
 

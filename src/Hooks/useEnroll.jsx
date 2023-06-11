@@ -6,10 +6,7 @@ import Loading from '../Pages/LoadingPage/Loading';
 import { useNavigation } from 'react-router-dom';
 
 const useEnroll = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const {user , loading} = useAuth()
     const [axiosSecure] = useAxiosSecure()
     const{data: enrollClasses = [] , refetch}=useQuery({

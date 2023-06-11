@@ -13,10 +13,7 @@ import Loading from '../../LoadingPage/Loading';
 import { useNavigation } from 'react-router-dom';
 
 const Reviews = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
 
     const { data: reviews = [] } = useQuery({
         queryKey: ['reviews'],

@@ -3,10 +3,7 @@ import axios from 'axios';
 import Loading from "../Pages/LoadingPage/Loading";
 import { useNavigation } from "react-router-dom";
 const useInstructors = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const{data: instructors=[] , isLoading: loading , refetch}=useQuery({
         queryKey:["instructors"],
         queryFn: async()=>{

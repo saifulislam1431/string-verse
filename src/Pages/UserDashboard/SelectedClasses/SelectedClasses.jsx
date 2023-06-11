@@ -8,10 +8,7 @@ import Loading from '../../LoadingPage/Loading';
 import { Helmet } from 'react-helmet';
 
 const SelectedClasses = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const [classesCart, refetch] = useClassCart();
 
     const totalPrice = classesCart.reduce((sum, item) => item.price + sum, 0)

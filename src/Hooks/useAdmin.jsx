@@ -6,10 +6,7 @@ import { useNavigation } from 'react-router-dom';
 import Loading from '../Pages/LoadingPage/Loading';
 
 const useAdmin = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({

@@ -9,10 +9,7 @@ import Loading from '../../LoadingPage/Loading';
 import { useNavigation } from 'react-router-dom';
 
 const Home = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     return (
         <section>
             <Helmet>

@@ -4,10 +4,7 @@ import { useNavigation } from "react-router-dom";
 
 const useClasses = () => {
 
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const{data: classes = [] , isLoading: loading , refetch} = useQuery({
         queryKey:["classes"],
         queryFn: async()=>{

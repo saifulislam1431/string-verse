@@ -11,10 +11,7 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const { logOut } = useAuth();
     const navigate = useNavigate();
     useEffect(()=>{

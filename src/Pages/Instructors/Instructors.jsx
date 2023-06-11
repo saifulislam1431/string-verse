@@ -7,10 +7,7 @@ import { useNavigation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const Instructors = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const [instructors] = useInstructors()
     return (
         <section className='my-14'>

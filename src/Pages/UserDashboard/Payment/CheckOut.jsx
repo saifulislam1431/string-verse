@@ -9,10 +9,7 @@ import { useNavigation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const CheckOut = ({ price, cart, refetch }) => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const [axiosSecure] = useAxiosSecure()
     const { user } = useAuth();
     const stripe = useStripe();

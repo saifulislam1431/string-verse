@@ -10,10 +10,7 @@ import { Helmet } from 'react-helmet';
 import Loading from '../LoadingPage/Loading';
 
 const Dashboard = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const{user} = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();

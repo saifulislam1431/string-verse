@@ -9,10 +9,7 @@ import { useNavigation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const AddClass = () => {
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const[, , refetch] = useClasses();
@@ -23,7 +20,8 @@ const AddClass = () => {
         const instructorName = form.name.value;
         const instructorEmail = form.email.value;
         const className = form.className.value;
-        const price = form.price.value;
+        const classPrice = form.price.value;
+        const price = parseInt(classPrice)
         const image = form.photo.value;
         const availableSeats = form.seat.value;
         const numberOfStudents = 0;

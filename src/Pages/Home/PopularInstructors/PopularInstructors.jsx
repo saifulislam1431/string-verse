@@ -7,10 +7,7 @@ import { useNavigation } from 'react-router-dom';
 
 const PopularInstructors = () => {
     const[instructors] = useInstructors();
-    const navigation = useNavigation();
-    if(navigation.state === "loading"){
-        return <Loading></Loading>
-    }
+
     return (
         <section className='my-14'>
             <Slide triggerOnce delay={3}>
