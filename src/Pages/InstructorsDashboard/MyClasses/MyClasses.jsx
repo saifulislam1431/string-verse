@@ -5,7 +5,7 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
 import { FaEdit } from 'react-icons/fa';
 import Loading from '../../LoadingPage/Loading';
-import { useNavigation } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const MyClasses = () => {
@@ -79,7 +79,7 @@ const MyClasses = () => {
                     <label htmlFor={`my_modal_${singleClass._id}`} className="myBtn">See</label>
                   </td>
                   <td>
-                    <button className='myBtnSec'><FaEdit className='h-5 w-5' /></button>
+                    <Link to={`/dashboard/updateClass/${singleClass._id}`}><button className='myBtnSec'><FaEdit className='h-5 w-5' /></button></Link>
                   </td>
                 <td>
                 <input type="checkbox" id={`my_modal_${singleClass._id}`} className="modal-toggle" />

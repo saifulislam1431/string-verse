@@ -19,6 +19,7 @@ import InstructorRoute from "./InstructorRoute";
 import AddClass from "../Pages/InstructorsDashboard/addClass/AddClass";
 import MyClasses from "../Pages/InstructorsDashboard/MyClasses/MyClasses";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import UpdateClass from "../Pages/InstructorsDashboard/UpdateClass/UpdateClass";
 
 
 const router = createBrowserRouter([
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
             {
                 path:"myClass",
                 element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
+            },
+            {
+                path: "updateClass/:id",
+                element:<InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>
             }
         ]
     }

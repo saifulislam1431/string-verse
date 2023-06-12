@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink, Outlet, useNavigation } from 'react-router-dom';
-import { HiBars3BottomLeft, HiListBullet, HiOutlineCheckBadge, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup, HiPlus, HiPlusCircle } from "react-icons/hi2";
+import { HiBars3BottomLeft, HiListBullet, HiOutlineCheckBadge, HiOutlineClipboardDocumentCheck, HiOutlinePencilSquare, HiOutlinePlus, HiOutlineUserGroup, HiPlus, HiPlusCircle } from "react-icons/hi2";
 import { CiWallet,CiViewBoard, CiHome, CiEdit, CiUser } from "react-icons/ci";
 import logo from "../../assets/logo/plectrum (1).png";
 import useAuth from '../../Hooks/useAuth';
@@ -53,6 +53,8 @@ const Dashboard = () => {
 <NavLink to="/dashboard/addClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiPlus className='inline-flex items-center h-6 w-6'/> Add A class</NavLink>
 
 <NavLink to="/dashboard/myClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiListBullet className='inline-flex items-center h-6 w-6'/> My Classes</NavLink>
+
+<NavLink to="/dashboard/updateClass" className={({isActive})=>(isActive ? "dash-active" : "dash-default")}><HiOutlineClipboardDocumentCheck className='inline-flex items-center h-6 w-6'/> Update Class</NavLink>
 
                          </>
                          :
