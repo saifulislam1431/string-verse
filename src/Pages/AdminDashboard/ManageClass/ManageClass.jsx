@@ -70,7 +70,7 @@ const ManageClass = () => {
       status: item?.status,
       feedback: message ,
     }
-    console.log(updateData);
+
 
     const res = await axiosSecure.patch(`/popular-classes/${id}`, updateData)
     if (res.data.modifiedCount > 0) {

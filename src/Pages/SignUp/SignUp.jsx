@@ -41,7 +41,6 @@ const SignUp = () => {
         if(!/(?=.*?[#?!@$%^&*-])/.test(password)){
             return setError("At least one special character include in your password")
         }
-        console.log(data);
         signUp(data?.email , data?.password)
         .then(res=>{
             const loggedUser = res.user;
