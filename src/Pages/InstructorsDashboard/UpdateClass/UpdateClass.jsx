@@ -39,7 +39,7 @@ const UpdateClass = () => {
             status
         }
 
-        console.log(updateClass);
+
         const res = await axiosSecure.put(`/popular-classes/${id}`, updateClass)
         if (res.data.modifiedCount > 0) {
             refetch()
